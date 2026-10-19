@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Minigame 20-10 - Bay Cùng Nàng Thơ</title>
+  <meta name="description" content="Minigame Flappy Bird 20-10 dành tặng bạn gái cùng tuổi: Vượt chướng ngại vật, mở hộp quà bí ẩn và nhận bức tâm thư ngọt ngào!">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Confetti CDN for victory celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow & falling petals -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="floating-petals-layer" id="petalsLayer"></div>
+
+  <!-- Header Bar -->
+  <header class="game-header">
+    <div class="game-badge">
+      <span class="pulse-icon">🌹</span> Minigame 20-10
+    </div>
+    <div class="header-actions">
+      <button id="toggleSoundBtn" class="header-btn icon-only" title="Bật/Tắt âm thanh">
+        <span id="soundStatusIcon">🔊</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SCREEN 1: GIAO DIỆN BẮT ĐẦU (GỌN GÀNG, CHỈ CẦN NHẬP TÊN) -->
+  <section id="startScreen" class="screen active">
+    <div class="glass-card welcome-box">
+      <div class="title-tag">🌸 Happy Vietnamese Women's Day 20-10 🌸</div>
+      <h1 class="game-title">Bay Cùng Nàng Thơ <br><span class="gradient-text">Rinh Quà 20/10</span> 🕊️✨</h1>
+      
+      <p class="game-desc">
+        Điều khiển đôi cánh bay lượn qua các cổng hoa, nhặt các <strong>Hộp Quà Bí Ẩn 🎁</strong> 
+        để khám phá những lời chúc ngọt ngào và mở khóa bức tâm thư dành riêng cho bạn!
+      </p>
+
+      <!-- Chỉ cần nhập tên bạn gái -->
+      <div class="recipient-input-card">
+        <label for="recipientInput">🌷 Nhập tên của bạn (hoặc biệt danh đáng yêu):</label>
+        <div class="input-row">
+          <input type="text" id="recipientInput" placeholder="Ví dụ: Linh, Trang, Mai, Ngọc, Cún Con..." maxlength="25">
+          <button id="randomNameBtn" type="button" class="btn-sub">Gợi ý tên</button>
+        </div>
+      </div>
+
+      <button id="startGameBtn" class="btn btn-primary btn-large pulse-glow">
+        <span>BẮT ĐẦU BAY NGAY</span>
+        <span class="arrow-icon">➔</span>
+      </button>
+
+      <div class="control-hints">
+        👉 Nhấn <strong>SPACE</strong> hoặc <strong>Chạm vào màn hình</strong> để Vỗ Cánh Bay Lên 🕊️
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: GAMEPLAY FLAPPY BIRD CANVAS -->
+  <section id="gameScreen" class="screen">
+    <!-- Game HUD -->
+    <div class="hud-container">
+      <div class="hud-item hearts-hud">
+        <span class="hud-icon">💖</span>
+        <div class="hud-text">
+          <span class="hud-caption">Số Mạng</span>
+          <span class="hud-hearts" id="heartsVal">❤️❤️❤️</span>
+        </div>
+      </div>
+
+      <div class="hud-item gifts-hud">
+        <span class="hud-icon">🎁</span>
+        <div class="hud-text">
+          <span class="hud-caption">Hộp Quà</span>
+          <span class="hud-number" id="collectedGiftsVal">0/5</span>
+        </div>
+      </div>
+
+      <div class="hud-item progress-hud">
+        <div class="progress-bar-wrap">
+          <div class="progress-labels">
+            <span>Tiến Về Đích 🏰</span>
+            <span id="distancePercent">0%</span>
+          </div>
+          <div class="track">
+            <div class="track-fill" id="trackFill"></div>
+            <div class="runner-icon" id="runnerMiniIcon">🕊️</div>
+            <div class="castle-flag">🏰</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-item score-hud">
+        <span class="hud-icon">⭐</span>
+        <div class="hud-text">
+          <span class="hud-caption">Điểm</span>
+          <span class="hud-number" id="scoreVal">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Skill Banner -->
+    <div class="active-skills-bar" id="activeSkillsBar"></div>
+
+    <!-- Canvas Wrapper (Responsive full view for phones) -->
+    <div class="canvas-wrapper" id="canvasWrapper">
+      <canvas id="gameCanvas" width="900" height="480"></canvas>
+
+      <!-- Tap to flap touch helper for phones -->
+      <div class="flap-touch-hint" id="flapTouchHint">
+        <span>Chạm màn hình để Bay 🕊️</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI MYSTERY BOX PAUSE MODAL (Tạm dừng khi nhặt hộp quà để đọc thư nhỏ) -->
+  <div id="miniLetterPauseModal" class="mini-pause-modal">
+    <div class="mini-pause-box">
+      <div class="pause-wax-seal" id="pauseBoxIcon">🎁</div>
+      <div class="pause-tag" id="pauseLetterTag">HỘP QUÀ BÍ MẬT MỞ RA!</div>
+      <div class="pause-quote">“</div>
+      <div class="pause-message" id="pauseLetterMsg">Chúc bạn luôn xinh tươi, rạng rỡ và ngập tràn hạnh phúc!</div>
+      <div class="pause-quote right">”</div>
+      <button id="resumeRunBtn" class="btn btn-primary btn-large pulse-glow">
+        <span>Tiếp Tục Bay (Space)</span>
+        <span class="arrow-icon">➔</span>
+      </button>
+      <div class="pause-hint">Nhấn <strong>SPACE</strong> hoặc <strong>Chạm vào màn hình</strong> để bay tiếp</div>
+    </div>
+  </div>
+
+  <!-- GAME OVER MODAL (Khi vỡ hết 3 trái tim) -->
+  <div id="gameOverModal" class="mini-pause-modal">
+    <div class="mini-pause-box">
+      <div class="pause-wax-seal">💔</div>
+      <div class="pause-tag" style="background:#ffe0e0; color:#e63946;">HẾT TRÁI TIM RỒI!</div>
+      <div class="pause-message" style="font-size: 1.6rem; color:#4a1e2d; margin: 16px 0 20px;">
+        Đừng nản lòng nhé <span id="gameOverName" style="color:#ff3366;">cậu</span> ơi! <br>
+        Hãy thử bay lại một lần nữa để chạm tới bức tâm thư 20/10 nha! 🌸
+      </div>
+      <button id="retryBtn" class="btn btn-primary btn-large pulse-glow">
+        <span>Bay Lại Từ Đầu 🔄</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: KẾT QUẢ - CHỈ HIỂN THỊ DUY NHẤT 1 BỨC TÂM THƯ GỬI BẠN GÁI CÙNG TUỔI -->
+  <section id="victoryScreen" class="screen">
+    <div class="victory-container">
+      
+      <div class="congrats-banner">
+        🎉 BẠN ĐÃ CÁN ĐÍCH THÀNH CÔNG! CHÚC MỪNG 20/10! 🎉
+      </div>
+      <h2 class="victory-headline">Bức Thư Gửi Riêng Cho <span id="victoryRecipientName" class="gradient-text">Nàng Thơ</span> 💖</h2>
+
+      <!-- Bức thư thanh lịch và ngọt ngào -->
+      <div class="grand-letter-envelope" id="grandLetterEnvelope">
+        <div class="letter-paper">
+          <div class="wax-seal-badge">👑 20-10</div>
+          <div class="letter-decor tl">🌸</div>
+          <div class="letter-decor br">🌸</div>
+
+          <div class="letter-head">
+            <span class="letter-index-badge" id="letterIndexBadge">BỨC TÂM THƯ GỬI NÀNG</span>
+            <h3 class="letter-topic" id="letterTopic">Gửi Cô Bạn Cùng Tuổi Đáng Yêu Nhất Quả Đất</h3>
+            <span class="letter-recipient-line">Thân gửi: <strong id="letterRecipientTarget" class="highlight-target">Bạn Nữ Cực Dễ Thương</strong></span>
+          </div>
+
+          <div class="letter-content" id="letterBodyText">
+            <!-- Dynamic grand letter content -->
+          </div>
+
+          <div class="special-gift-card">
+            <span class="gift-icon">🧋</span>
+            <div class="gift-details">
+              <strong>Món quà tinh thần ngày 20/10:</strong>
+              <span id="letterPerkText">Một kèo trà sữa full topping và một ngày cưng chiều tối đa, luôn vui vẻ không muộn phiền!</span>
+            </div>
+          </div>
+
+          <div class="letter-sign">
+            <span>Luôn quý mến bạn,</span>
+            <strong>Người bạn luôn đồng hành cùng cậu ✨</strong>
+          </div>
+
+          <div class="letter-actions">
+            <button id="copyGrandWishBtn" class="btn btn-secondary btn-sm">
+              <span>📋 Sao Chép Bức Thư</span>
+            </button>
+            <button id="celebrateConfettiBtn" class="btn btn-primary btn-sm">
+              <span>🎆 Pháo Hoa Mừng</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="finish-actions">
+        <button id="playAgainBtn" class="btn btn-primary pulse-glow">
+          <span>Chơi Lại Lần Nữa 🎮</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Toast Notification -->
+  <div id="appToast" class="app-toast">Đã sao chép lời chúc thành công! 💌</div>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
