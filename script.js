@@ -12,16 +12,16 @@
 const PEER_MINI_WISHES = [
   "Chúc cậu ngày 20/10 luôn xinh tươi, rạng rỡ, cười nhiều và bớt overthinking lại nha! ✨",
   "Mong cậu ăn bao nhiêu món ngon cũng không lo tăng cân, trà sữa luôn được tặng full topping! 🧋",
-  "Chúc cậu mỗi ngày đến lớp/đi làm đều có nhiều niềm vui, deadline tự tan biến như bong bóng! 💻🌸",
+  "Chúc cậu mỗi ngày đến trường hay đi làm đều ngập tràn niềm vui, áp lực tự tan biến như bong bóng! 🌸✨",
   "Mong cậu luôn tự tin, kiêu hãnh và yêu thương bản thân, vì cậu là cô gái cực kỳ đặc biệt! 👑",
   "Chúc túi tiền của cậu luôn rủng rỉnh, shopping thả ga không cần nhìn giá! 🛍️💖",
   "Nụ cười của cậu rất xinh và tỏa nắng, hãy luôn cười thật tươi mỗi ngày nhé! 😊🌹",
-  "Chúc mọi kỳ thi hay dự án của cậu đều đạt điểm A+, làm việc gì cũng may mắn hanh thông! 🌟",
+  "Chúc mọi kỳ thi hay kế hoạch của cậu đều đạt kết quả xuất sắc, làm việc gì cũng may mắn hanh thông! 🌟",
   "Chúc cậu ngày 20/10 nhận được thật nhiều hoa, nhiều quà và ngập tràn tình yêu thương! 🎁💐"
 ];
 
 // ========================================================
-// 2. DATA: 10 BỨC TÂM THƯ LỚN GỬI BẠN GÁI CÙNG TUỔI
+// 2. DATA: 10 BỨC TÂM THƯ LỚN GỬI BẠN GÁI CÙNG TUỔI (NGỌT NGÀO, ĐỜI THƯỜNG)
 // ========================================================
 const PEER_GRAND_LETTERS = [
   {
@@ -54,11 +54,11 @@ const PEER_GRAND_LETTERS = [
   },
   {
     topic: "Gửi Cô Bạn Cùng Lớp / Cùng Khóa Siêu Đáng Yêu 📚",
-    perk: "Đặc quyền 20/10: Thi cử toàn điểm A+, đồ án pass mượt mà!",
+    perk: "Đặc quyền 20/10: Thi cử toàn điểm cao, mọi dự định đều thành công rực rỡ!",
     body: `
       Chào bạn cùng tuổi,<br><br>
       Nhân ngày Phụ nữ Việt Nam 20-10, chúc bạn luôn giữ được sự năng động, thông minh và duyên dáng. Những buổi học hay làm việc nhóm cùng bạn luôn khiến mọi thứ trở nên nhẹ nhàng và tràn đầy tiếng cười.<br><br>
-      Chúc bạn gặt hái được thật nhiều thành tích xuất sắc, đạt được những mục tiêu lớn mà bạn đang ấp ủ và luôn là cô gái tỏa sáng nhất lớp nhé!
+      Chúc bạn gặt hái được thật nhiều thành tích xuất sắc, đạt được những mục tiêu lớn mà bạn đang ấp ủ và luôn là cô gái tỏa sáng nhất nhé!
     `
   },
   {
@@ -76,7 +76,7 @@ const PEER_GRAND_LETTERS = [
     body: `
       Gửi cô gái đầy khí chất,<br><br>
       Tớ luôn rất ngưỡng mộ sự độc lập, cá tính và phong thái tự tin của cậu. Cậu luôn biết mình muốn gì và nỗ lực hết mình để đạt được điều đó. Đó là nét đẹp quyến rũ và đáng nể nhất của phái đẹp thời hiện đại.<br><br>
-      Chúc cậu tuổi trẻ rực rỡ, sự nghiệp thăng tiến vù vù, tự mua cho mình những món đồ yêu thích và luôn kiêu hãnh bước đi trên con đường của chính mình!
+      Chúc cậu tuổi trẻ rực rỡ, con đường phía trước rộng mở thênh thang, tự mua cho mình những món đồ yêu thích và luôn kiêu hãnh bước đi trên con đường của chính mình!
     `
   },
   {
@@ -89,17 +89,17 @@ const PEER_GRAND_LETTERS = [
     `
   },
   {
-    topic: "Gửi Nàng Thơ Công Nghệ & Sắc Sảo 💻",
-    perk: "Đặc quyền 20/10: Fix bug một phát ăn ngay, logic đỉnh cao vạn người mê!",
+    topic: "Gửi Cô Gái Có Nụ Cười Tỏa Nắng & Tinh Tế ☀️",
+    perk: "Đặc quyền 20/10: Được nhường nhịn, yêu thương và nuông chiều tối đa!",
     body: `
-      Gửi cô bạn IT / coder siêu ngầu,<br><br>
-      Hình ảnh một cô gái cùng tuổi vừa xinh đẹp lại vừa thông minh, ngồi gõ phím tanh tách giải quyết vấn đề luôn có một sức hút vô cùng đặc biệt. Chúc cậu ngày 20/10 code không bug, deploy mượt mà và luôn giữ vững niềm đam mê.<br><br>
-      Chúc cậu nhan sắc ngày càng thăng hạng, tiền lương và thưởng ngày càng tăng cao!
+      Gửi cô bạn cùng tuổi có nụ cười siêu ngọt ngào,<br><br>
+      Mỗi lần nhìn thấy nụ cười của cậu là bao nhiêu mệt mỏi trong ngày dường như tan biến hết. Cậu luôn mang lại một nguồn năng lượng trong trẻo, vui tươi khiến ai ở cạnh cũng cảm thấy dễ chịu và ấm lòng.<br><br>
+      Nhân ngày 20/10, tớ chúc cậu luôn giữ mãi nét tươi tắn ấy, mỗi ngày trôi qua đều là những khoảnh khắc dịu dàng, hạnh phúc và luôn có người thương yêu, chở che nhé!
     `
   },
   {
-    topic: "Gửi Bạn Nữ Mê Du Lịch & Khám Phá Thế Giới ✈️",
-    perk: "Đặc quyền 20/10: Đặt vé đi đâu cũng săn được vé 0 đồng!",
+    topic: "Gửi Bạn Nữ Mê Du Lịch & Khám Phá Cuộc Sống ✈️",
+    perk: "Đặc quyền 20/10: Đi muôn nơi ngắm cảnh đẹp, chụp ngàn tấm ảnh lung linh!",
     body: `
       Gửi đôi chân không biết mỏi,<br><br>
       Chúc cậu một ngày 20/10 rực rỡ sắc màu! Mong đôi chân của cậu sẽ đưa cậu đến thật nhiều vùng đất mới tuyệt đẹp, chụp được ngàn tấm ảnh lung linh và gom góp thêm nhiều kỷ niệm đáng nhớ của tuổi thanh xuân.<br><br>
@@ -125,22 +125,22 @@ class Flappy2010Game {
     this.canvas = document.getElementById('gameCanvas');
     this.ctx = this.canvas.getContext('2d');
 
-    this.WIDTH = 900;
-    this.HEIGHT = 480;
+    this.WIDTH = 400;
+    this.HEIGHT = 700;
 
     this.state = 'START';
     this.recipientName = 'Bạn';
     this.isPaused = false;
 
-    // Flight Physics (Super slow, floaty, relaxing balloon-like movement)
-    this.gravity = 0.12;
-    this.flapStrength = -3.4;
-    this.speed = 1.4;
+    // Flight Physics (Floaty, relaxing pace for a 2-minute journey)
+    this.gravity = 0.16;
+    this.flapStrength = -4.2;
+    this.speed = 1.55;
 
     // Player (Cute flying fairy/girl)
     this.bird = {
-      x: 140,
-      y: 220,
+      x: 90,
+      y: 350,
       width: 44,
       height: 44,
       vy: 0,
@@ -156,9 +156,9 @@ class Flappy2010Game {
     // Skills
     this.shieldTimer = 0; // Invincible against pillars
 
-    // Level progression (Longer flight to enjoy)
+    // Level progression (~2 minutes game time with reading stops)
     this.distance = 0;
-    this.GOAL_DISTANCE = 7500;
+    this.GOAL_DISTANCE = 9800;
     this.score = 0;
 
     // Pillars & Mystery Boxes
@@ -262,9 +262,10 @@ class Flappy2010Game {
       }
     });
 
-    // Tap/Click to Flap
-    this.canvas.addEventListener('pointerdown', (e) => {
-      e.preventDefault();
+    // Tap/Click on Canvas & Game View for Thumb friendly Mobile Play
+    const handleScreenTap = (e) => {
+      // Prevent bubbling to unwanted controls
+      if (e.target && (e.target.closest('button') || e.target.closest('input'))) return;
       if (this.state === 'GAMEOVER') {
         this.gameOverModal.classList.remove('active');
         this.startNewGame();
@@ -273,7 +274,13 @@ class Flappy2010Game {
       } else if (this.state === 'PLAYING') {
         this.doFlap();
       }
-    });
+    };
+
+    this.canvas.addEventListener('pointerdown', handleScreenTap);
+    const canvasWrap = document.getElementById('canvasWrapper');
+    if (canvasWrap) {
+      canvasWrap.addEventListener('pointerdown', handleScreenTap);
+    }
 
     this.resumeRunBtn.addEventListener('click', () => {
       this.resumeGame();
@@ -327,14 +334,14 @@ class Flappy2010Game {
 
   initDecor() {
     this.clouds = [
-      { x: 120, y: 70, scale: 1.2, speed: 0.35 },
-      { x: 450, y: 110, scale: 0.9, speed: 0.25 },
-      { x: 780, y: 60, scale: 1.3, speed: 0.3 }
+      { x: 60, y: 90, scale: 0.9, speed: 0.3 },
+      { x: 260, y: 150, scale: 0.8, speed: 0.22 },
+      { x: 380, y: 70, scale: 1.1, speed: 0.28 }
     ];
   }
 
   // ========================================================
-  // START NEW FLAPPY BIRD RUN
+  // START NEW FLAPPY BIRD RUN (PORTRAIT MOBILE)
   // ========================================================
   startNewGame() {
     this.distance = 0;
@@ -350,9 +357,9 @@ class Flappy2010Game {
     this.hearts = 3;
     this.invulnerableTimer = 0;
 
-    // Reset Bird
-    this.bird.x = 140;
-    this.bird.y = 220;
+    // Reset Bird (Centrally placed vertically)
+    this.bird.x = 90;
+    this.bird.y = 350;
     this.bird.vy = 0;
     this.bird.rotation = 0;
 
@@ -375,37 +382,43 @@ class Flappy2010Game {
     this.bird.vy = this.flapStrength;
     this.bird.rotation = -0.22; // Gentle slight tilt up
     window.soundEngine.playFlap();
+
+    // Hide tap hint on first flap
+    const hint = document.getElementById('flapTouchHint');
+    if (hint) hint.style.display = 'none';
   }
 
   // ========================================================
-  // PILLARS & UNIFIED MYSTERY GIFT BOXES GENERATOR
+  // PILLARS & UNIFIED MYSTERY GIFT BOXES GENERATOR (PORTRAIT)
   // ========================================================
   updateSpawns() {
     // Castle at finish
-    if (this.distance >= this.GOAL_DISTANCE - 450 && !this.castle) {
+    if (this.distance >= this.GOAL_DISTANCE - 400 && !this.castle) {
       this.castle = {
-        x: this.WIDTH + 100,
-        y: 120,
-        width: 220,
-        height: 360,
+        x: this.WIDTH + 50,
+        y: 280,
+        width: 180,
+        height: 420,
         reached: false
       };
     }
 
-    if (this.distance >= this.GOAL_DISTANCE - 400) return;
+    if (this.distance >= this.GOAL_DISTANCE - 350) return;
 
-    // Generous distance between pillars (450px) with extra wide gap (205px)
-    const minPillarDist = 450;
+    // Chướng ngại vật cách xa nhau hơn theo chiều ngang (480px - rất thoáng và dễ chịu)
+    const minPillarDist = 480;
     const lastPillar = this.pillars[this.pillars.length - 1];
 
-    if (!lastPillar || (this.WIDTH + 50 - lastPillar.x > minPillarDist)) {
-      const gapHeight = 205; // Extra wide safe passage
-      const topHeight = 50 + Math.random() * 140;
+    if (!lastPillar || (this.WIDTH + 30 - lastPillar.x > minPillarDist)) {
+      const gapHeight = 200; // Khoảng trống an toàn, rộng rãi cho bạn nữ chơi thoải mái
+      const minHeight = 70;
+      const maxHeight = this.HEIGHT - gapHeight - 80;
+      const topHeight = minHeight + Math.random() * (maxHeight - minHeight);
       const bottomY = topHeight + gapHeight;
 
       const newPillar = {
-        x: this.WIDTH + 50,
-        width: 65,
+        x: this.WIDTH + 30,
+        width: 56,
         topHeight: topHeight,
         bottomY: bottomY,
         bottomHeight: this.HEIGHT - bottomY,
@@ -413,14 +426,15 @@ class Flappy2010Game {
       };
       this.pillars.push(newPillar);
 
-      // Spawn Mystery Gift Box inside some gates! (Total 5 boxes)
-      if (this.boxesSpawned < this.maxBoxes && Math.random() < 0.72) {
+      // Phân bổ đều 5 Hộp Quà Bí Ẩn qua suốt chặng bay 2 phút (mỗi ~1600-1800px một hộp)
+      const targetMilestone = (this.boxesSpawned + 1) * (this.GOAL_DISTANCE / (this.maxBoxes + 1));
+      if (this.boxesSpawned < this.maxBoxes && this.distance >= targetMilestone - 500) {
         this.boxesSpawned++;
         this.mysteryBoxes.push({
-          x: newPillar.x + 15,
+          x: newPillar.x + 10,
           y: topHeight + (gapHeight / 2) - 18,
-          width: 38,
-          height: 38,
+          width: 36,
+          height: 36,
           boxIndex: this.boxesSpawned,
           bobOffset: Math.random() * Math.PI * 2
         });
@@ -802,35 +816,46 @@ class Flappy2010Game {
 
   renderCastle(x, y) {
     this.ctx.save();
+    // Base castle building down to bottom
     this.ctx.fillStyle = '#ffb3c6';
-    this.ctx.fillRect(x + 30, y + 60, 160, 200);
+    this.ctx.fillRect(x + 25, y + 60, 170, this.HEIGHT - (y + 60));
 
-    // Towers
+    // Left tower
     this.ctx.fillStyle = '#ff8da1';
-    this.ctx.fillRect(x, y, 40, 260);
-    this.ctx.fillRect(x + 180, y, 40, 260);
+    this.ctx.fillRect(x, y, 45, this.HEIGHT - y);
+    // Right tower
+    this.ctx.fillRect(x + 175, y, 45, this.HEIGHT - y);
 
-    // Cones
+    // Left tower cone roof
     this.ctx.fillStyle = '#ff3366';
     this.ctx.beginPath();
-    this.ctx.moveTo(x - 5, y);
-    this.ctx.lineTo(x + 20, y - 50);
-    this.ctx.lineTo(x + 45, y);
+    this.ctx.moveTo(x - 4, y);
+    this.ctx.lineTo(x + 22, y - 50);
+    this.ctx.lineTo(x + 49, y);
     this.ctx.fill();
 
+    // Right tower cone roof
     this.ctx.beginPath();
-    this.ctx.moveTo(x + 175, y);
-    this.ctx.lineTo(x + 200, y - 50);
-    this.ctx.lineTo(x + 225, y);
+    this.ctx.moveTo(x + 171, y);
+    this.ctx.lineTo(x + 197, y - 50);
+    this.ctx.lineTo(x + 224, y);
     this.ctx.fill();
 
-    // Sign
+    // Welcome Sign
     this.ctx.fillStyle = '#ffffff';
-    this.ctx.fillRect(x + 45, y + 80, 130, 36);
+    this.ctx.fillRect(x + 40, y + 80, 140, 38);
     this.ctx.fillStyle = '#ff3366';
-    this.ctx.font = 'bold 16px Quicksand';
+    this.ctx.font = 'bold 15px Quicksand, sans-serif';
     this.ctx.textAlign = 'center';
-    this.ctx.fillText('🏰 20/10 LOVE', x + 110, y + 104);
+    this.ctx.fillText('🏰 ĐÍCH ĐẾN 20/10', x + 110, y + 104);
+
+    // Cute castle gate
+    this.ctx.fillStyle = '#7a223e';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 110, y + 230, 30, Math.PI, 0);
+    this.ctx.lineTo(x + 140, this.HEIGHT);
+    this.ctx.lineTo(x + 80, this.HEIGHT);
+    this.ctx.fill();
 
     this.ctx.restore();
   }
